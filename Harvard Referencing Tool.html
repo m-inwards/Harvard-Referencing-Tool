@@ -120,7 +120,7 @@
           <!--Book (1 author container)-->
           <div id="book-1-container">
             <div class="form-shell">
-              <form onsubmit="submitBook1()">
+              <form>
                 <label for="asurname">Author Surname</label>
                 <input type="text" id="book-1-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
 
@@ -221,7 +221,57 @@
           </div>
           <!--Book (3 or more authors container)-->
           <div id="book-3-or-more-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="authors">Authors</label>
+                <textarea name="authors" id="book-3-authors" placeholder="Place authors names on new lines&#10;&#10;e.g. 'Bill Gates', 'Steve Jobs' and 'Elon Musk' would be entered as.....&#10;&#10;Bill Gates&#10;Steve Jobs&#10;Elon Musk&#10;&#10;Enter full names in one of the following formats&#10;&#10;John Fitzgerald Kennedy&#10;John F Kennedy&#10;John Kennedy&#10;&#10;This system only supports one middle name"></textarea>
+
+                <label for="yearpub">Year Of Publication</label>
+                <input type="text" id="book-3-year-of-publication" name="yearpub" placeholder="e.g. '2007'">
+
+                <label for="title">Title</label>
+                <input type="text" id="book-3-title" name="title" placeholder="e.g. 'The theory of everything'">
+
+                <label for="edition">Edition</label>
+                <input type="text" id="book-3-edition" name="edition" placeholder="e.g. '1st'/'2nd'/'3rd' etc">
+
+                <label for="placepub">Place Of Publication</label>
+                <input type="text" id="book-3-place-of-publication" name="placepub" placeholder="e.g. 'London'">
+
+                <label for="publisher">Publisher</label>
+                <input type="text" id="book-3-publisher" name="publisher" placeholder="e.g. 'Penguin Publishers'">
+
+                <script type="text/javascript">
+                  function submitBook3() {
+                    var authors = document.getElementById('book-3-authors').value;
+                    var authorsArray = authors.split(/\r?\n/);
+
+                    var bibliographyReference = ''
+                    for (let i = 0; i < authorsArray.length; i++) {
+                      if (authorsArray[i].split(' ').length == 2) {
+                          bibliographyReference += authorsArray[i].split(' ')[1] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '., '
+                      } else {
+                        bibliographyReference += authorsArray[i].split(' ')[2] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '.' + authorsArray[i].split(' ')[1].charAt(0) + '., '
+                      }
+                    }
+                    bibliographyReference = bibliographyReference.slice(0,-2)
+
+                    var yearOfPublication = document.getElementById('book-3-year-of-publication').value;
+                    var title = document.getElementById('book-3-title').value;
+                    var edition = document.getElementById('book-3-edition').value;
+                    var placeOfPublication = document.getElementById('book-3-place-of-publication').value;
+                    var publisher = document.getElementById('book-3-publisher').value;
+
+                    bibliographyReference = bibliographyReference + ' (' + yearOfPublication + ') <i>' + title + '.</i> ' + edition + ' edn. ' + placeOfPublication + ': ' + publisher + '.';
+                    var inTextReference = authorsArray[0].split(' ')[authorsArray[0].split(' ').length - 1] + ' et al. (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitBook3()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Chapter in an edited book-->
           <div id="chapter-in-edited-book-container" style="display:none;">
