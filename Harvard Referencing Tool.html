@@ -21,7 +21,6 @@
             document.getElementById('book-1-container').style.display = 'none';
             document.getElementById('book-2-container').style.display = 'none';
             document.getElementById('book-3-or-more-container').style.display = 'none';
-            document.getElementById('chapter-in-edited-book-container').style.display = 'none';
             document.getElementById('journal-article-1-container').style.display = 'none';
             document.getElementById('journal-article-2-container').style.display = 'none';
             document.getElementById('journal-article-3-or-more-container').style.display = 'none';
@@ -46,10 +45,6 @@
 
               case 'book-3-or-more':
                 document.getElementById('book-3-or-more-container').style.display = 'inline';
-                break;
-
-              case 'chapter-in-edited-book':
-                document.getElementById('chapter-in-edited-book-container').style.display = 'inline';
                 break;
 
               case 'journal-article-1':
@@ -100,7 +95,6 @@
             <option value="book-1">Book (1 author)</option>
             <option value="book-2">Book (2 authors)</option>
             <option value="book-3-or-more">Book (3 or more authors)</option>
-            <option value="chapter-in-edited-book">Chapter in an edited book</option>
             <option value="journal-article-1">Journal article (1 author)</option>
             <option value="journal-article-2">Journal article (2 authors)</option>
             <option value="journal-article-3-or-more">Journal article (3 or more authors)</option>
@@ -272,10 +266,6 @@
                 <button type="button" onclick="submitBook3()">Submit</button>
               </form>
             </div>
-          </div>
-          <!--Chapter in an edited book-->
-          <div id="chapter-in-edited-book-container" style="display:none;">
-            <p>Under Development</p>
           </div>
           <!--Journal article (1 author)-->
           <div id="journal-article-1-container" style="display:none;">
