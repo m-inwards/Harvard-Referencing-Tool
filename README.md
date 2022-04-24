@@ -8,7 +8,12 @@ OR
 - [x] Use this app and save your time
 
 ## Installation
-To install, simply download the GitHub repo, unzip and run "Harvard Referencing Tool.html" in a browser. The system has been tested in google chrome, but should have no foreseen issues in any other mainstream browser.
+To install, simply download the GitHub repo, unzip and run "Harvard Referencing Tool.html" in a browser.
+
+#### Reference Image (How to download)
+<img src="media/readme_download_reference.png" width="100%">
+
+The system has been tested in google chrome, but should have no foreseen issues in any other mainstream browser.
 
 ## Note To Programmers
 I am aware there are better ways of structuring the code here into separate files etc. This would make the JavaScript much easier to manage and develop moving forward. The reason that it is all on the one page is because I wanted this to be something that everyone can just download and run without having to setup anything else extra.
