@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Harvard Referencing Tool</title>
     <link rel="icon" type="image/x-icon" href="media/App_Icon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/Harvard Referencing Tool.css">
@@ -168,33 +169,52 @@
             <div class="form-shell">
               <form>
                 <label for="asurname">Author Surname</label>
-                <input type="text" id="author-surname" name="asurname" placeholder="e.g. 'Hawking'">
+                <input type="text" id="book-2-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
 
                 <label for="afinitial">Author First Initial</label>
-                <input type="text" id="author-first-initial" name="afinitial" placeholder="e.g. 'S'">
+                <input type="text" id="book-2-author-first-initial" name="afinitial" placeholder="e.g. 'S'">
 
                 <label for="a2surname">Author 2 Surname</label>
-                <input type="text" id="author-2-surname" name="a2surname" placeholder="e.g. 'Hawking'">
+                <input type="text" id="book-2-author-2-surname" name="a2surname" placeholder="e.g. 'Hawking'">
 
                 <label for="a2finitial">Author 2 First Initial</label>
-                <input type="text" id="author-2-first-initial" name="a2finitial" placeholder="e.g. 'S'">
+                <input type="text" id="book-2-author-2-first-initial" name="a2finitial" placeholder="e.g. 'S'">
 
                 <label for="yearpub">Year Of Publication</label>
-                <input type="text" id="year-of-publication" name="yearpub" placeholder="e.g. '2007'">
+                <input type="text" id="book-2-year-of-publication" name="yearpub" placeholder="e.g. '2007'">
 
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="e.g. 'The theory of everything'">
+                <input type="text" id="book-2-title" name="title" placeholder="e.g. 'The theory of everything'">
 
                 <label for="edition">Edition</label>
-                <input type="text" id="edition" name="edition" placeholder="e.g. '1st'/'2nd'/'3rd' etc">
+                <input type="text" id="book-2-edition" name="edition" placeholder="e.g. '1st'/'2nd'/'3rd' etc">
 
                 <label for="placepub">Place Of Publication</label>
-                <input type="text" id="place-of-publication" name="placepub" placeholder="e.g. 'London'">
+                <input type="text" id="book-2-place-of-publication" name="placepub" placeholder="e.g. 'London'">
 
                 <label for="publisher">Publisher</label>
-                <input type="text" id="publisher" name="publisher" placeholder="e.g. 'Penguin Publishers'">
+                <input type="text" id="book-2-publisher" name="publisher" placeholder="e.g. 'Penguin Publishers'">
 
-                <input type="submit" value="Submit">
+                <script type="text/javascript">
+                  function submitBook2() {
+                    var authorSurname = document.getElementById('book-2-author-surname').value;
+                    var authorFirstInitial = document.getElementById('book-2-author-first-initial').value;
+                    var author2Surname = document.getElementById('book-2-author-2-surname').value;
+                    var author2FirstInitial = document.getElementById('book-2-author-2-first-initial').value;
+                    var yearOfPublication = document.getElementById('book-2-year-of-publication').value;
+                    var title = document.getElementById('book-2-title').value;
+                    var edition = document.getElementById('book-2-edition').value;
+                    var placeOfPublication = document.getElementById('book-2-place-of-publication').value;
+                    var publisher = document.getElementById('book-2-publisher').value;
+
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. and ' + author2Surname + ', ' + author2FirstInitial + '. (' + yearOfPublication + ') <i>' + title + '.</i> ' + edition + ' edn. ' + placeOfPublication + ': ' + publisher + '.';
+                    var inTextReference = authorSurname + ' and ' + author2Surname + ' (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitBook2()">Submit</button>
               </form>
             </div>
 
@@ -252,8 +272,23 @@
         <td class="result-container">
           <h3>In Text Reference</h3>
           <p id="in-text-result">Fill in the fields on the left and press submit to generate this information.</p>
+          <script type="text/javascript">
+            function copyInText() {
+              var inTextReferenceCopy = document.getElementById('in-text-result').textContent;
+              navigator.clipboard.writeText(inTextReferenceCopy);
+            }
+          </script>
+          <button onclick="copyInText()"><i class="fa fa-copy"></i></button>
+
           <h3>Bibliography Reference</h3>
           <p id="bibliography-result">Fill in the fields on the left and press submit to generate this information.</p>
+          <script type="text/javascript">
+            function copyBibliography() {
+              var bibliographyReferenceCopy = document.getElementById('bibliography-result').textContent;
+              navigator.clipboard.writeText(bibliographyReferenceCopy);
+            }
+          </script>
+          <button onclick="copyBibliography()"><i class="fa fa-copy"></i></button>
         </td>
       </tr>
     </table>
