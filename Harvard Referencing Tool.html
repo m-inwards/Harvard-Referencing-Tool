@@ -311,24 +311,28 @@
         <!--Container for result-->
         <td class="result-container">
           <h3>In Text Reference</h3>
-          <p id="in-text-result">Fill in the fields on the left and press submit to generate this information.</p>
+          <p id="in-text-result" style="display: inline-block;">Fill in the fields on the left and press submit to generate this information.</p>
           <script type="text/javascript">
             function copyInText() {
               var inTextReferenceCopy = document.getElementById('in-text-result').textContent;
               navigator.clipboard.writeText(inTextReferenceCopy);
             }
           </script>
-          <button onclick="copyInText()"><i class="fa fa-copy"></i></button>
+          <div style="width:50px; height:50px; display: inline-block; padding-left: 20px;">
+            <button onclick="copyInText()"><i class="fa fa-copy"></i></button>
+          </div>
 
           <h3>Bibliography Reference</h3>
-          <p id="bibliography-result">Fill in the fields on the left and press submit to generate this information.</p>
+          <p id="bibliography-result" style="display: inline-block;">Fill in the fields on the left and press submit to generate this information.</p>
           <script type="text/javascript">
             function copyBibliography() {
               var bibliographyReferenceCopy = document.getElementById('bibliography-result').textContent;
               navigator.clipboard.writeText(bibliographyReferenceCopy);
             }
           </script>
-          <button onclick="copyBibliography()"><i class="fa fa-copy"></i></button>
+          <div style="width:50px; height:50px; display: inline-block; padding-left: 20px;">
+            <button onclick="copyBibliography()"><i class="fa fa-copy"></i></button>
+          </div>
         </td>
       </tr>
     </table>
