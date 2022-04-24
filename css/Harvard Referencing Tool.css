@@ -2,11 +2,13 @@
   width: 25%;
   max-width: 200px;
   border: 1px solid black;
+  border-radius: 4px;
 }
 
 .result-container {
   padding-top: 10px;
   padding-left: 30px;
   border: 1px solid black;
+  border-radius: 4px;
   vertical-align: text-top;
 }
