@@ -1,0 +1,12 @@
+.form-container {
+  width: 25%;
+  max-width: 200px;
+  border: 1px solid black;
+}
+
+.result-container {
+  padding-top: 10px;
+  padding-left: 10px;
+  border: 1px solid black;
+  vertical-align: text-top;
+}
