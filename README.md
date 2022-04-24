@@ -18,6 +18,9 @@ The system has been tested in google chrome, but should have no foreseen issues 
 ## Note To Programmers
 I am aware there are better ways of structuring the code here into separate files etc. This would make the JavaScript much easier to manage and develop moving forward. The reason that it is all on the one page is because I wanted this to be something that everyone can just download and run without having to setup anything else extra.
 
+## Plans for future support
+I plan to slowly over time increase the options of items that you can reference with this app. Should anyone wish to fork the repo and add some of the other references then I will do my best to integrate that code back into the main repo and also add your name to the credits for contributing. If there is something specific that you would like to be added then raise it in the issues section and I will get around to it as soon as I can.
+
 ## License
 MIT License
 
