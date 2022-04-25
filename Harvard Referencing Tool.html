@@ -455,15 +455,150 @@
           </div>
           <!--Electronic journal-->
           <div id="electronic-journal-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="asurname">Author Surname</label>
+                <input type="text" id="electronic-journal-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
+
+                <label for="afinitial">Author First Initial</label>
+                <input type="text" id="electronic-journal-author-first-initial" name="afinitial" placeholder="e.g. 'S'">
+
+                <label for="yearpub">Year Of Publication</label>
+                <input type="text" id="electronic-journal-year-of-publication" name="yearpub" placeholder="e.g. '2010'">
+
+                <label for="articletitle">Title Of Article</label>
+                <input type="text" id="electronic-journal-title-of-article" name="articletitle" placeholder="e.g. 'IT Guide for dummies'">
+
+                <label for="journaltitle">Title Of Journal</label>
+                <input type="text" id="electronic-journal-title-of-journal" name="journaltitle" placeholder="e.g. 'Journal for everyone'">
+
+                <label for="volnumber">Volume Number</label>
+                <input type="text" id="electronic-journal-volume-number" name="volnumber" placeholder="e.g. '24'">
+
+                <label for="pageref">Page Reference</label>
+                <input type="text" id="electronic-journal-page-reference" name="pageref" placeholder="e.g. '146-162'">
+
+                <label for="url">URL</label>
+                <input type="text" id="electronic-journal-url" name="url" placeholder="e.g. 'https://www.bbc.co.uk'">
+
+                <label for="dateaccessed">Date Accessed</label>
+                <input type="date" id="electronic-journal-date-accessed" name="dateaccessed">
+
+                <script type="text/javascript">
+                  function submitElectrticJournal() {
+                    var authorSurname = document.getElementById('electronic-journal-author-surname').value;
+                    var authorFirstInitial = document.getElementById('electronic-journal-author-first-initial').value;
+                    var yearOfPublication = document.getElementById('electronic-journal-year-of-publication').value;
+                    var titleOfArticle = document.getElementById('electronic-journal-title-of-article').value;
+                    var titleOfJournal = document.getElementById('electronic-journal-title-of-journal').value;
+                    var volumeNumber = document.getElementById('electronic-journal-volume-number').value;
+                    var pageReference = document.getElementById('electronic-journal-page-reference').value;
+                    var url = document.getElementById('electronic-journal-url').value;
+                    var dateAccessed = new Date(document.getElementById('electronic-journal-date-accessed').value);
+
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    var formattedDateAccessed = dateAccessed.getDate() + ' ' + months[dateAccessed.getMonth()] + ' ' + dateAccessed.getFullYear();
+
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + yearOfPublication + ') \'' + titleOfArticle + '\', <i>' + titleOfJournal + '</i>, ' + volumeNumber + ', pp. ' + pageReference + '. [Online] Available at: ' + url + '. (Accessed: ' + formattedDateAccessed + ').';
+                    var inTextReference = authorSurname + ' (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitElectrticJournal()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Newspaper/Magazine article-->
           <div id="newspaper/magazine-article-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="asurname">Author Surname</label>
+                <input type="text" id="newspaper-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
+
+                <label for="afinitial">Author First Initial</label>
+                <input type="text" id="newspaper-author-first-initial" name="afinitial" placeholder="e.g. 'S'">
+
+                <label for="articletitle">Title Of Article</label>
+                <input type="text" id="newspaper-title-of-article" name="articletitle" placeholder="e.g. 'IT Guide for dummies'">
+
+                <label for="newspapertitle">Newspaper Title</label>
+                <input type="text" id="newspaper-newspaper-title" name="newspapertitle" placeholder="e.g. 'The Daily Mail'">
+
+                <label for="date">Date Published</label>
+                <input type="date" id="newspaper-date" name="date">
+
+                <label for="pageref">Page Reference</label>
+                <input type="text" id="newspaper-page-reference" name="pageref" placeholder="e.g. '146-162'">
+
+                <script type="text/javascript">
+                  function submitNewspaper() {
+                    var authorSurname = document.getElementById('newspaper-author-surname').value;
+                    var authorFirstInitial = document.getElementById('newspaper-author-first-initial').value;
+                    var titleOfArticle = document.getElementById('newspaper-title-of-article').value;
+                    var titleOfNewspaper = document.getElementById('newspaper-newspaper-title').value;
+                    var pageReference = document.getElementById('newspaper-page-reference').value;
+                    var datePublished = new Date(document.getElementById('newspaper-date').value);
+
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    var formattedDatePublished = datePublished.getDate() + ' ' + months[datePublished.getMonth()];
+
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + datePublished.getFullYear() + ') \'' + titleOfArticle + '\', <i>' + titleOfNewspaper + '</i>, ' + formattedDatePublished + ', pp. ' + pageReference + '.';
+                    var inTextReference = authorSurname + ' (' + datePublished.getFullYear() + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitNewspaper()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Website-->
           <div id="website-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="asurname">Author Surname OR Organisation</label>
+                <input type="text" id="website-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
+
+                <label for="afinitial">Author First Initial (If Applicable)</label>
+                <input type="text" id="website-author-first-initial" name="afinitial" placeholder="e.g. 'S'">
+
+                <label for="yearpub">Year Of Publication OR Update</label>
+                <input type="text" id="website-year-of-publication" name="yearpub" placeholder="e.g. '2010'">
+
+                <label for="pagetitle">Page Title</label>
+                <input type="text" id="website-page-title" name="pagetitle" placeholder="e.g. 'IT Guide for dummies'">
+
+                <label for="url">URL</label>
+                <input type="text" id="website-url" name="url" placeholder="e.g. 'https://www.bbc.co.uk'">
+
+                <label for="dateaccessed">Date Accessed</label>
+                <input type="date" id="website-date-accessed" name="dateaccessed">
+
+                <script type="text/javascript">
+                  function submitWebsite() {
+                    var authorSurname = document.getElementById('website-author-surname').value;
+                    var authorFirstInitial = document.getElementById('website-author-first-initial').value;
+                    var yearOfPublication = document.getElementById('website-year-of-publication').value;
+                    var pageTitle = document.getElementById('website-page-title').value;
+                    var url = document.getElementById('website-url').value;
+                    var dateAccessed = new Date(document.getElementById('website-date-accessed').value);
+
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    var formattedDateAccessed = dateAccessed.getDate() + ' ' + months[dateAccessed.getMonth()] + ' ' + dateAccessed.getFullYear();
+
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + yearOfPublication + ') <i>' + pageTitle + '</i>. Available at: ' + url + '. (Accessed: ' + formattedDateAccessed + ').';
+                    var inTextReference = authorSurname + ' (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitWebsite()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Lecture-->
           <div id="lecture-container" style="display:none;">
