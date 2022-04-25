@@ -257,12 +257,12 @@
                     var bibliographyReference = ''
                     for (let i = 0; i < authorsArray.length; i++) {
                       if (authorsArray[i].split(' ').length == 2) {
-                          bibliographyReference += authorsArray[i].split(' ')[1] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '., '
+                          bibliographyReference += authorsArray[i].split(' ')[1] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '., ';
                       } else {
-                        bibliographyReference += authorsArray[i].split(' ')[2] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '.' + authorsArray[i].split(' ')[1].charAt(0) + '., '
+                        bibliographyReference += authorsArray[i].split(' ')[2] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '.' + authorsArray[i].split(' ')[1].charAt(0) + '., ';
                       }
                     }
-                    bibliographyReference = bibliographyReference.slice(0,-2)
+                    bibliographyReference = bibliographyReference.slice(0,-2);
 
                     var yearOfPublication = document.getElementById('book-3-year-of-publication').value;
                     var title = document.getElementById('book-3-title').value;
@@ -423,15 +423,15 @@
                     var authors = document.getElementById('journal-3-authors').value;
                     var authorsArray = authors.split(/\r?\n/);
 
-                    var bibliographyReference = ''
+                    var bibliographyReference = '';
                     for (let i = 0; i < authorsArray.length; i++) {
                       if (authorsArray[i].split(' ').length == 2) {
-                          bibliographyReference += authorsArray[i].split(' ')[1] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '., '
+                          bibliographyReference += authorsArray[i].split(' ')[1] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '., ';
                       } else {
-                        bibliographyReference += authorsArray[i].split(' ')[2] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '.' + authorsArray[i].split(' ')[1].charAt(0) + '., '
+                        bibliographyReference += authorsArray[i].split(' ')[2] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '.' + authorsArray[i].split(' ')[1].charAt(0) + '., ';
                       }
                     }
-                    bibliographyReference = bibliographyReference.slice(0,-2)
+                    bibliographyReference = bibliographyReference.slice(0,-2);
 
                     var yearOfPublication = document.getElementById('journal-3-year-of-publication').value;
                     var titleOfArticle = document.getElementById('journal-3-title-of-article').value;
@@ -440,7 +440,7 @@
                     var partNumber = document.getElementById('journal-3-part-number').value;
                     var pageReference = document.getElementById('journal-3-page-reference').value;
 
-                    var partNumberResult = partNumber != '' ? '(' + partNumber + ')' : ''
+                    var partNumberResult = partNumber != '' ? '(' + partNumber + ')' : '';
 
                     bibliographyReference = bibliographyReference + ' (' + yearOfPublication + ') \'' + titleOfArticle + '\', <i>' + titleOfJournal + '</i>, ' + volumeNumber + partNumberResult + ', pp. ' + pageReference;
                     var inTextReference = authorsArray[0].split(' ')[authorsArray[0].split(' ').length - 1] + ' et al. (' + yearOfPublication + ')';
