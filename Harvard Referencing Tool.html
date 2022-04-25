@@ -269,7 +269,54 @@
           </div>
           <!--Journal article (1 author)-->
           <div id="journal-article-1-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="asurname">Author Surname</label>
+                <input type="text" id="journal-1-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
+
+                <label for="afinitial">Author First Initial</label>
+                <input type="text" id="journal-1-author-first-initial" name="afinitial" placeholder="e.g. 'S'">
+
+                <label for="yearpub">Year Of Publication</label>
+                <input type="text" id="journal-1-year-of-publication" name="yearpub" placeholder="e.g. '2010'">
+
+                <label for="articletitle">Title Of Article</label>
+                <input type="text" id="journal-1-title-of-article" name="articletitle" placeholder="e.g. 'IT Guide for dummies'">
+
+                <label for="journaltitle">Title Of Journal</label>
+                <input type="text" id="journal-1-title-of-journal" name="journaltitle" placeholder="e.g. 'Journal for everyone'">
+
+                <label for="volnumber">Volume Number</label>
+                <input type="text" id="journal-1-volume-number" name="volnumber" placeholder="e.g. '24'">
+
+                <label for="partnumber">Part Number (If Applicable)</label>
+                <input type="text" id="journal-1-part-number" name="partnumber" placeholder="e.g. '4'">
+
+                <label for="pageref">Page Reference</label>
+                <input type="text" id="journal-1-page-reference" name="pageref" placeholder="e.g. '146-162'">
+
+                <script type="text/javascript">
+                  function submitBook1() {
+                    var authorSurname = document.getElementById('journal-1-author-surname').value;
+                    var authorFirstInitial = document.getElementById('journal-1-author-first-initial').value;
+                    var yearOfPublication = document.getElementById('journal-1-year-of-publication').value;
+                    var titleOfArticle = document.getElementById('journal-1-title-of-article').value;
+                    var titleOfJournal = document.getElementById('journal-1-title-of-journal').value;
+                    var volumeNumber = document.getElementById('journal-1-volume-number').value;
+                    var partNumber = document.getElementById('journal-1-part-number').value;
+                    var pageReference = document.getElementById('journal-1-page-reference').value;
+
+                    //UNFINSHED BIBLIOGRAPHY REFERENCE
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + yearOfPublication + ') \'' + titleOfArticle + '\', ' + titleOfJournal + ', ' + volumeNumber;
+                    var inTextReference = authorSurname + ' (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitBook1()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Journal article (2 authors)-->
           <div id="journal-article-2-container" style="display:none;">
