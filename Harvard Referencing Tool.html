@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/snackbar.css">
     <link rel="stylesheet" href="css/Harvard Referencing Tool.css">
+    <!--Show Snackbar-->
+    <script type="text/javascript">
+    function showSnackbar() {
+      // Get the snackbar DIV
+      var x = document.getElementById("snackbar");
+
+      // Add the "show" class to DIV
+      x.className = "show";
+
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    </script>
   </head>
   <body>
     <table width="100%" height="100%">
@@ -296,7 +310,7 @@
                 <input type="text" id="journal-1-page-reference" name="pageref" placeholder="e.g. '146-162'">
 
                 <script type="text/javascript">
-                  function submitBook1() {
+                  function submitJournal1() {
                     var authorSurname = document.getElementById('journal-1-author-surname').value;
                     var authorFirstInitial = document.getElementById('journal-1-author-first-initial').value;
                     var yearOfPublication = document.getElementById('journal-1-year-of-publication').value;
@@ -306,25 +320,138 @@
                     var partNumber = document.getElementById('journal-1-part-number').value;
                     var pageReference = document.getElementById('journal-1-page-reference').value;
 
-                    //UNFINSHED BIBLIOGRAPHY REFERENCE
-                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + yearOfPublication + ') \'' + titleOfArticle + '\', ' + titleOfJournal + ', ' + volumeNumber;
+                    var partNumberResult = partNumber != '' ? '(' + partNumber + ')' : ''
+
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + yearOfPublication + ') \'' + titleOfArticle + '\', <i>' + titleOfJournal + '</i>, ' + volumeNumber + partNumberResult + ', pp. ' + pageReference;
                     var inTextReference = authorSurname + ' (' + yearOfPublication + ')';
 
                     document.getElementById('bibliography-result').innerHTML = bibliographyReference;
                     document.getElementById('in-text-result').innerHTML = inTextReference;
                   }
                 </script>
-                <button type="button" onclick="submitBook1()">Submit</button>
+                <button type="button" onclick="submitJournal1()">Submit</button>
               </form>
             </div>
           </div>
           <!--Journal article (2 authors)-->
           <div id="journal-article-2-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="asurname">Author Surname</label>
+                <input type="text" id="journal-2-author-surname" name="asurname" placeholder="e.g. 'Hawking'">
+
+                <label for="afinitial">Author First Initial</label>
+                <input type="text" id="journal-2-author-first-initial" name="a2surname" placeholder="e.g. 'S'">
+
+                <label for="a2surname">Author 2 Surname</label>
+                <input type="text" id="journal-2-author-2-surname" name="a2surname" placeholder="e.g. 'Gates'">
+
+                <label for="a2finitial">Author 2 First Initial</label>
+                <input type="text" id="journal-2-author-2-first-initial" name="afinitial" placeholder="e.g. 'B'">
+
+                <label for="yearpub">Year Of Publication</label>
+                <input type="text" id="journal-2-year-of-publication" name="yearpub" placeholder="e.g. '2010'">
+
+                <label for="articletitle">Title Of Article</label>
+                <input type="text" id="journal-2-title-of-article" name="articletitle" placeholder="e.g. 'IT Guide for dummies'">
+
+                <label for="journaltitle">Title Of Journal</label>
+                <input type="text" id="journal-2-title-of-journal" name="journaltitle" placeholder="e.g. 'Journal for everyone'">
+
+                <label for="volnumber">Volume Number</label>
+                <input type="text" id="journal-2-volume-number" name="volnumber" placeholder="e.g. '24'">
+
+                <label for="partnumber">Part Number (If Applicable)</label>
+                <input type="text" id="journal-2-part-number" name="partnumber" placeholder="e.g. '4'">
+
+                <label for="pageref">Page Reference</label>
+                <input type="text" id="journal-2-page-reference" name="pageref" placeholder="e.g. '146-162'">
+
+                <script type="text/javascript">
+                  function submitJournal2() {
+                    var authorSurname = document.getElementById('journal-2-author-surname').value;
+                    var authorFirstInitial = document.getElementById('journal-2-author-first-initial').value;
+                    var author2Surname = document.getElementById('journal-2-author-2-surname').value;
+                    var author2FirstInitial = document.getElementById('journal-2-author-2-first-initial').value;
+                    var yearOfPublication = document.getElementById('journal-2-year-of-publication').value;
+                    var titleOfArticle = document.getElementById('journal-2-title-of-article').value;
+                    var titleOfJournal = document.getElementById('journal-2-title-of-journal').value;
+                    var volumeNumber = document.getElementById('journal-2-volume-number').value;
+                    var partNumber = document.getElementById('journal-2-part-number').value;
+                    var pageReference = document.getElementById('journal-2-page-reference').value;
+
+                    var partNumberResult = partNumber != '' ? '(' + partNumber + ')' : ''
+
+                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. and ' + author2Surname + ', ' + author2FirstInitial + '. (' + yearOfPublication + ') \'' + titleOfArticle + '\', <i>' + titleOfJournal + '</i>, ' + volumeNumber + partNumberResult + ', pp. ' + pageReference;
+                    var inTextReference = authorSurname + ' and ' + author2Surname + ' (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitJournal2()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Journal article (3 or more authors)-->
           <div id="journal-article-3-or-more-container" style="display:none;">
-            <p>Under Development</p>
+            <div class="form-shell">
+              <form>
+                <label for="authors">Authors</label>
+                <textarea name="authors" id="journal-3-authors" placeholder="Place authors names on new lines&#10;&#10;e.g. 'Bill Gates', 'Steve Jobs' and 'Elon Musk' would be entered as.....&#10;&#10;Bill Gates&#10;Steve Jobs&#10;Elon Musk&#10;&#10;Enter full names in one of the following formats&#10;&#10;John Fitzgerald Kennedy&#10;John F Kennedy&#10;John Kennedy&#10;&#10;This system only supports one middle name"></textarea>
+
+                <label for="yearpub">Year Of Publication</label>
+                <input type="text" id="journal-3-year-of-publication" name="yearpub" placeholder="e.g. '2010'">
+
+                <label for="articletitle">Title Of Article</label>
+                <input type="text" id="journal-3-title-of-article" name="articletitle" placeholder="e.g. 'IT Guide for dummies'">
+
+                <label for="journaltitle">Title Of Journal</label>
+                <input type="text" id="journal-3-title-of-journal" name="journaltitle" placeholder="e.g. 'Journal for everyone'">
+
+                <label for="volnumber">Volume Number</label>
+                <input type="text" id="journal-3-volume-number" name="volnumber" placeholder="e.g. '24'">
+
+                <label for="partnumber">Part Number (If Applicable)</label>
+                <input type="text" id="journal-3-part-number" name="partnumber" placeholder="e.g. '4'">
+
+                <label for="pageref">Page Reference</label>
+                <input type="text" id="journal-3-page-reference" name="pageref" placeholder="e.g. '146-162'">
+
+                <script type="text/javascript">
+                  function submitJournal3() {
+                    var authors = document.getElementById('journal-3-authors').value;
+                    var authorsArray = authors.split(/\r?\n/);
+
+                    var bibliographyReference = ''
+                    for (let i = 0; i < authorsArray.length; i++) {
+                      if (authorsArray[i].split(' ').length == 2) {
+                          bibliographyReference += authorsArray[i].split(' ')[1] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '., '
+                      } else {
+                        bibliographyReference += authorsArray[i].split(' ')[2] + ', ' + authorsArray[i].split(' ')[0].charAt(0) + '.' + authorsArray[i].split(' ')[1].charAt(0) + '., '
+                      }
+                    }
+                    bibliographyReference = bibliographyReference.slice(0,-2)
+
+                    var yearOfPublication = document.getElementById('journal-3-year-of-publication').value;
+                    var titleOfArticle = document.getElementById('journal-3-title-of-article').value;
+                    var titleOfJournal = document.getElementById('journal-3-title-of-journal').value;
+                    var volumeNumber = document.getElementById('journal-3-volume-number').value;
+                    var partNumber = document.getElementById('journal-3-part-number').value;
+                    var pageReference = document.getElementById('journal-3-page-reference').value;
+
+                    var partNumberResult = partNumber != '' ? '(' + partNumber + ')' : ''
+
+                    bibliographyReference = bibliographyReference + ' (' + yearOfPublication + ') \'' + titleOfArticle + '\', <i>' + titleOfJournal + '</i>, ' + volumeNumber + partNumberResult + ', pp. ' + pageReference;
+                    var inTextReference = authorsArray[0].split(' ')[authorsArray[0].split(' ').length - 1] + ' et al. (' + yearOfPublication + ')';
+
+                    document.getElementById('bibliography-result').innerHTML = bibliographyReference;
+                    document.getElementById('in-text-result').innerHTML = inTextReference;
+                  }
+                </script>
+                <button type="button" onclick="submitJournal3()">Submit</button>
+              </form>
+            </div>
           </div>
           <!--Electronic journal-->
           <div id="electronic-journal-container" style="display:none;">
@@ -363,6 +490,7 @@
             function copyInText() {
               var inTextReferenceCopy = document.getElementById('in-text-result').textContent;
               navigator.clipboard.writeText(inTextReferenceCopy);
+              showSnackbar();
             }
           </script>
           <div style="width:50px; height:50px; display: inline-block; padding-left: 20px;">
@@ -375,6 +503,7 @@
             function copyBibliography() {
               var bibliographyReferenceCopy = document.getElementById('bibliography-result').textContent;
               navigator.clipboard.writeText(bibliographyReferenceCopy);
+              showSnackbar();
             }
           </script>
           <div style="width:50px; height:50px; display: inline-block; padding-left: 20px;">
@@ -388,5 +517,6 @@
         </td>
       </tr>
     </table>
+    <div id="snackbar">Text copied to clipboard.</div>
   </body>
 </html>
