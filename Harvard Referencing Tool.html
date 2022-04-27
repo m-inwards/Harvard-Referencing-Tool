@@ -589,7 +589,9 @@
                     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                     var formattedDateAccessed = dateAccessed.getDate() + ' ' + months[dateAccessed.getMonth()] + ' ' + dateAccessed.getFullYear();
 
-                    var bibliographyReference = authorSurname + ', ' + authorFirstInitial + '. (' + yearOfPublication + ') <i>' + pageTitle + '</i>. Available at: ' + url + '. (Accessed: ' + formattedDateAccessed + ').';
+                    var surnameFormat = authorFirstInitial.length == 0 ? '' : ', ' + authorFirstInitial + '.'
+
+                    var bibliographyReference = authorSurname + surnameFormat + ' (' + yearOfPublication + ') <i>' + pageTitle + '</i>. Available at: ' + url + '. (Accessed: ' + formattedDateAccessed + ').';
                     var inTextReference = authorSurname + ' (' + yearOfPublication + ')';
 
                     document.getElementById('bibliography-result').innerHTML = bibliographyReference;
